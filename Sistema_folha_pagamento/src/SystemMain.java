@@ -101,11 +101,67 @@ public class SystemMain {
         System.out.println("Empregado não encontrado!");
     }
 
-    public void resulVenda(){}
+    public void resulVenda(){
+        /*
+        * Recebe determinada quantidade de venda, o empregado é o assalariado com comissao
+        * podemos colocar o bonus por horas aqui tbm
+        * */
+    }
 
-    public void taxaServ(){}
+    public void taxaServ(){
+        /*
+        * Cobrança de taxas, a taxa sindical é algo fixo para cara empregado, já a taxa de serviços extra é pra quem tem
+        * plano de saude, seguro, colegio pago, tudo pela empresa*/
+    }
 
-    public void changeDate(){}
+    public void changeDate(ArrayList<Empregado> empregados){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Digite o nome do usuário que deseja alterar os dados:");
+        String name = input.nextLine();
+        Empregado aux;
+        boolean flag = false;
+        int escolha = 1;
+
+        for(int i = 0; i < empregados.size(); i++){
+            aux = empregados.get(i);
+            if(aux.getName().equals(name)){
+                flag = true;
+                break;
+            }
+        }
+        if(!flag){
+            System.out.println("Empregado não encontrado!");
+        } else {
+            while (escolha != 0) {
+                System.out.println("1. Alterar nome\n2. Alterar endereço\n3. Alterar tipo de empregado\n" +
+                        "4. Alterar método de pagamento\n5. Alterar vínculo com sinditaco\n" +
+                        "6. Alterar identificação do sindicato\n7. Alterar taxa sindical\n0. Sair");
+                escolha = input.nextInt();
+                String lixo = input.nextLine();
+                if(escolha == 1){
+                    System.out.println("Digite o novo nome:");
+                    name = input.nextLine();
+                    aux.setName(name);
+                } else if(escolha == 2){
+                    System.out.println("Digite o novo endereço:");
+                    name = input.nextLine();
+                    aux.setAddress(name);
+                } else if(escolha == 3){
+                    System.out.println("Digite o novo tipo de empregado:");
+                    name = input.nextLine();
+                    aux.setStatus(name);
+                } else if(escolha == 4){
+                    System.out.println("Digite o novo método de pagamento");
+                } else if(escolha == 5){
+                    System.out.println("Pertence ou não ao sindicato ?");
+                } else if(escolha == 6){
+                    System.out.println("Digite nova identificação do sindicato:");
+                } else if(escolha == 7){
+                    System.out.println("Digite a nova taxa sindical:");
+                }
+            }
+        }
+    }
 
     public void pay(){}
 
