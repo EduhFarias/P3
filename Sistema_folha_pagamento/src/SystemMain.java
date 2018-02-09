@@ -2,7 +2,7 @@ import java.util.*;
 
 public class SystemMain {
 
-    public void main(String[] args){
+    public static void main(String[] args){
         ArrayList<Empregado> empregados = new ArrayList<Empregado>();
         System.out.println("1. Adicionar empregado.\n2. Remover empregado.\n3. Lançar um cartão de ponto.\n" +
                 "4. Larçar um resultado de venda.\n5. Lançar uma taxa de serviço.\n6. Alterar informações de empregado.\n" +
