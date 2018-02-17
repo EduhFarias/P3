@@ -1,15 +1,25 @@
 public class CartaoPonto {
 
+    private int in_out = 0;
     private Date dInicio;
     private Date dFim;
     private Hour hInicio;
     private Hour hFim;
 
     public CartaoPonto(Date dInicio, Hour hInicio, Date dFim, Hour hFim) {
+        this.in_out = 0;
         this.dInicio = dInicio;
         this.dFim = dFim;
         this.hInicio = hInicio;
         this.hFim = hFim;
+    }
+
+    public int getIn_out() {
+        return in_out;
+    }
+
+    public void setIn_out(int in_out) {
+        this.in_out = in_out;
     }
 
     public Date getdInicio() {

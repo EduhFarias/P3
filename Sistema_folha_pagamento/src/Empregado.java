@@ -8,9 +8,19 @@ public class Empregado {
     private int identSind;  //diff da ident do empregado
     private String pagamento; //cheque p/correios, cheque/direto, deposito
     private CartaoPonto ponto;
+    private Salario salario;
+
+
+    public Salario getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Salario salario) {
+        this.salario = salario;
+    }
 
     public Empregado(String name, String address, String status, String sindicato,
-                     int ident, int identSind, String pagamento, CartaoPonto ponto) {
+                     int ident, int identSind, String pagamento, CartaoPonto ponto, Salario salario) {
         this.name = name;
         this.address = address;
         this.status = status;
@@ -19,6 +29,7 @@ public class Empregado {
         this.identSind = identSind;
         this.pagamento = pagamento;
         this.ponto = ponto;
+        this.salario = salario;
     }
 
     public String getName() {
