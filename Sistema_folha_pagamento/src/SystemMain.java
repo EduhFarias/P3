@@ -359,6 +359,7 @@ public class SystemMain {
                                 + emp.getSalario().getTaxas_serviços() + " -> " + emp.getSalario().getTaxa_extra()
                                 + "%" + "\nSalário: " + emp.getSalario().getPay() + "\nSalário final(com deduções): "
                                 + salario + "\n");
+                        emp.getSalario().setPagar_comissionado(0);
                         emp.getSalario().setPay(emp.getSalario().getSalario_base());
                     }
                 }
