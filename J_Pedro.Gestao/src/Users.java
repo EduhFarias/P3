@@ -2,19 +2,19 @@ import java.util.*;
 
 public class Users {
 	Scanner input = new Scanner(System.in);
-	ArrayList<String> FirstName = new ArrayList<String>();
-	ArrayList<String> LastName = new ArrayList<String>();
-	ArrayList<String> Email = new ArrayList<String>();
-	ArrayList<Integer> Type = new ArrayList<Integer>();
+	ArrayList<String> firstName = new ArrayList<String>();
+	ArrayList<String> lastName = new ArrayList<String>();
+	ArrayList<String> email = new ArrayList<String>();
+	ArrayList<Integer> type = new ArrayList<Integer>();
 	
-	ArrayList<String> Senha = new ArrayList<String>();
+	ArrayList<String> senha = new ArrayList<String>();
 	
 	public Users(){
-		FirstName.add("adm");
-		LastName.add("adm");
-		Email.add("admin@hotmail.com");
-		Senha.add("123");
-		Type.add(0);
+		firstName.add("adm");
+		lastName.add("adm");
+		email.add("admin@hotmail.com");
+		senha.add("123");
+		type.add(0);
 		
 	}
 	
@@ -23,9 +23,9 @@ public class Users {
 	public void Cadastro()
 	{
 		System.out.println("Primeiro Nome:");
-		String firstname = input.next();
+		String firstName = input.next();
 		System.out.println("Último Nome:");
-		String lastname = input.next();
+		String lastName = input.next();
 		System.out.println("Email:");
 		String email = input.next();
 		System.out.println("Senha:");
@@ -38,11 +38,11 @@ public class Users {
 		System.out.println("[5]Aluno Doutorado");
 		int type = input.nextInt();
 		
-		FirstName.add(firstname);
-		LastName.add(lastname);
-		Email.add(email);
-		Senha.add(senha);
-		Type.add(type);
+		firstName.add(firstName);
+		lastName.add(lastName);
+		email.add(email);
+		senha.add(senha);
+		type.add(type);
 		
 		
 		
@@ -51,15 +51,15 @@ public class Users {
 	public int Consulta()
 	{
 		System.out.println("Qual o Primeiro Nome do Usuário que você quer consultar?");
-		String firstname = input.next();
+		String firstName = input.next();
 		System.out.println("E o último Nome?");
-		String lastname = input.next();
+		String lastName = input.next();
 		int i;		
-		for(i = 0; i < FirstName.size();++i)
+		for(i = 0; i < firstName.size();++i)
 		{			
-			if(FirstName.get(i).intern() == firstname.intern())
+			if(firstName.get(i).intern() == firstName.intern())
 			{				
-				if(LastName.get(i).intern() == lastname.intern())
+				if(lastName.get(i).intern() == lastName.intern())
 				{
 						return i;			
 				}			
@@ -82,11 +82,11 @@ public class Users {
 	public int verify(String email, String senha)
 	{
 		int i;		
-		for(i = 0; i < Email.size();++i)
+		for(i = 0; i < email.size();++i)
 		{			
-			if(Email.get(i).intern() == email.intern())
+			if(email.get(i).intern() == email.intern())
 			{				
-				if(Senha.get(i).intern() == senha.intern())
+				if(senha.get(i).intern() == senha.intern())
 				{
 					return i;					
 				}
@@ -99,7 +99,7 @@ public class Users {
 	
 	public int numero_usuarios()
 	{
-		return Email.size();
+		return email.size();
 	}
 		
 
