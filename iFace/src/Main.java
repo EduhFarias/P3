@@ -1,12 +1,21 @@
 
 public class Main {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
+	
+	/*
+	 * Criação de conta
+	 * Criar/modificar dados pessoais ()
+	 * Add amigos
+	 * Envio de mensagens
+	 * Criação de grupos de comunidade
+	 * Add membros aos grupos
+	 * Recuperar dados de um usuario, seja senha, email qq coisa
+	 * Remover conta 
+	 * */
+	
 
 }
