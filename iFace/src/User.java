@@ -52,7 +52,15 @@ public class User {
 		return newUser;
 	}
 	
-	public void removeUser(ArrayList<User> users){
+	public static boolean checkUser(ArrayList<User> users, String name){
+		for(User current : users){
+			if(current.getName().equals(name))
+				return true;
+		}
+		return false;
+	}
+	
+	public static void removeUser(ArrayList<User> users){
 		
 		Scanner input = new Scanner(System.in);
 		String password;
@@ -69,4 +77,27 @@ public class User {
 		}
 		
 	}
+
+	public static void addFriend(ArrayList<User> users, ArrayList<User> friends){
+		Scanner input = new Scanner(System.in);
+		String name;
+		boolean exist = false;
+		
+		
+		System.out.println("Digite o nome do usuário que deseja adicionar a lista de amigos:");
+		name = input.nextLine();
+		
+		for(User current : users){
+			if(current.getName().equals(name)){
+				
+				exist = true;
+				break;
+			}
+		}
+		
+		if(!exist){
+			
+		}
+	}
+
 }
