@@ -3,14 +3,14 @@ import java.util.*;
 
 public class Resources {
 	Scanner input = new Scanner(System.in);
-	ArrayList<String> Name = new ArrayList<String>();
-	ArrayList<Integer> Alocador = new ArrayList<Integer>();
-	ArrayList<String> Estado = new ArrayList<String>();
-	ArrayList<Integer> Motivo = new ArrayList<Integer>();
-	ArrayList<String> Título = new ArrayList<String>();
-	ArrayList<String> Descrição= new ArrayList<String>();
-	ArrayList<String> Material = new ArrayList<String>();
-	ArrayList<String> Participantes = new ArrayList<String>();
+	ArrayList<String> name = new ArrayList<String>();
+	ArrayList<Integer> alocador = new ArrayList<Integer>();
+	ArrayList<String> estado = new ArrayList<String>();
+	ArrayList<Integer> motivo = new ArrayList<Integer>();
+	ArrayList<String> titulo = new ArrayList<String>();
+	ArrayList<String> descricao= new ArrayList<String>();
+	ArrayList<String> material = new ArrayList<String>();
+	ArrayList<String> participantes = new ArrayList<String>();
 	ArrayList<Integer> hora = new ArrayList<Integer>();
 	ArrayList<Integer> dia_i = new ArrayList<Integer>();
 	ArrayList<Integer> mes_i = new ArrayList<Integer>();
@@ -20,21 +20,21 @@ public class Resources {
 	ArrayList<Integer> ano_f = new ArrayList<Integer>();
 
 	public Resources(){
-		Name.add("Laborátorio");
-		Name.add("Auditório");
-		Name.add("Sala");
-		Name.add("Projetor");
+		name.add("Laborátorio");
+		name.add("Auditório");
+		name.add("Sala");
+		name.add("Projetor");
 
 		int i;
 		for(i=0;i<4;++i)
 		{
-			Estado.add(i,"Desalocado");
-			Alocador.add(i,-1);
-			Descrição.add(i,"None");
-			Título.add(i,"None");
-			Motivo.add(i,0);
-			Material.add(i,"None");
-			Participantes.add(i,"None");
+			estado.add(i,"Desalocado");
+			alocador.add(i,-1);
+			descricao.add(i,"None");
+			titulo.add(i,"None");
+			motivo.add(i,0);
+			naterial.add(i,"None");
+			participantes.add(i,"None");
 			hora.add(i,25);
 			dia_i.add(i,0);
 			dia_f.add(i,0);
@@ -50,7 +50,7 @@ public class Resources {
 		int i;
 		for(i=0;i<4;++i)
 		{
-			if(Alocador.get(i)==user_id)
+			if(alocador.get(i)==user_id)
 			{
 				return i;
 			}
@@ -73,7 +73,7 @@ public class Resources {
 		int i, cont = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() != "Desalocado")
+			if(estado.get(i).intern() != "Desalocado")
 			{
 				++cont;
 				System.out.println("Recurso: " );
@@ -100,23 +100,23 @@ public class Resources {
 					int z = input.nextInt();
 					if(z==1)
 					{
-						Estado.set(i,"Em processo de Alocação" );
+						estado.set(i,"Em processo de Alocação" );
 					}
 					else if(z == 2)
 					{
-						Estado.set(i, "Desalocado");
+						estado.set(i, "Desalocado");
 					}
 					else if(z == 3)
 					{
-						Estado.set(i, "Concluído");
+						estado.set(i, "Concluído");
 					}
 					else if(z == 4)
 					{
-						Estado.set(i, "Alocado");
+						estado.set(i, "Alocado");
 					}
 					else if(z == 5)
 					{
-						Estado.set(i, "Em Andamento");
+						estado.set(i, "Em Andamento");
 					}
 				}
 				else if(x == 0)
@@ -139,8 +139,8 @@ public class Resources {
 		System.out.println("[3]Sala");
 		System.out.println("[4]Projetor");
 		int recurso = input.nextInt();
-		Alocador.set(recurso-1, user_id);
-		Estado.set(recurso-1,"Em processo de Alocação");
+		alocador.set(recurso-1, user_id);
+		estado.set(recurso-1,"Em processo de Alocação");
 		System.out.println("Qual o motivo da alocação?");
 		if(flag == 6)
 		{
@@ -154,15 +154,15 @@ public class Resources {
 		}
 
 		int motivo = input.nextInt();
-		Motivo.set(recurso-1, motivo);
+		motivo.set(recurso-1, motivo);
 		System.out.println("Qual o título da atividade?");
 		input = new Scanner(System.in);
 		String titulo = input.nextLine();
-		Título.set(recurso-1, titulo);
+		titulo.set(recurso-1, titulo);
 		System.out.println("Dê uma breve descrição sobre a atividade");
 		input = new Scanner(System.in);
-		String descriçao = input.nextLine();
-		Descrição.set(recurso-1, descriçao);
+		String descricao = input.nextLine();
+		descricao.set(recurso-1, descriçao);
 		System.out.println("Qual o horário da atividade?");
 		int h = input.nextInt();
 		hora.set(recurso-1,h);
@@ -202,7 +202,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() == "Em processo de Alocação")
+			if(estado.get(i).intern() == "Em processo de Alocação")
 			{
 				++aux;
 			}
@@ -215,7 +215,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() == "Desalocado")
+			if(estado.get(i).intern() == "Desalocado")
 			{
 				++aux;
 			}
@@ -228,7 +228,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() == "Alocado")
+			if(estado.get(i).intern() == "Alocado")
 			{
 				++aux;
 			}
@@ -240,7 +240,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() == "Em Andamento")
+			if(estado.get(i).intern() == "Em Andamento")
 			{
 				++aux;
 			}
@@ -252,7 +252,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Estado.get(i).intern() == "Concluído")
+			if(estado.get(i).intern() == "Concluído")
 			{
 				++aux;
 			}
@@ -264,7 +264,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Motivo.get(i) == 1)
+			if(motivo.get(i) == 1)
 			{
 				++aux;
 			}
@@ -276,7 +276,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Motivo.get(i) == 2)
+			if(motivo.get(i) == 2)
 			{
 				++aux;
 			}
@@ -288,7 +288,7 @@ public class Resources {
 		int i,aux = 0;
 		for(i=0;i<4;++i)
 		{
-			if(Motivo.get(i) == 3)
+			if(motivo.get(i) == 3)
 			{
 				++aux;
 			}
