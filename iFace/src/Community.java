@@ -6,12 +6,15 @@ public class Community {
 	private String name;
 	private String description;
 	private User holder;
-	private ArrayList<User> members = new ArrayList();
+	private ArrayList<User> members = new ArrayList<>();
+	private ArrayList<Message> messages = new ArrayList<>();
 	
-	public Community(String name, String description, User holder) {
+	public Community(String name, String description, User holder, ArrayList<User> members, ArrayList<Message> messages) {
 		this.name = name;
 		this.description = description;
 		this.holder = holder;
+		this.members = members;
+		this.messages = messages;
 	}
 
 	public String getName() {
@@ -47,7 +50,15 @@ public class Community {
 		this.members = members;
 	}
 
-	public static void createCommunity(ArrayList<Community> communities){
+    public ArrayList<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<Message> messages) {
+        this.messages = messages;
+    }
+
+    public static void createCommunity(ArrayList<Community> communities, User logged){
 		
 		Scanner input = new Scanner(System.in);
 		String name, description;
@@ -57,34 +68,29 @@ public class Community {
 		//Checar se não há nenhuma outra comunidade com o mesmo nome
 		System.out.println("Dê uma descrição para a comunidade:");
 		description = input.nextLine();
-		
-		User current = null;
-		Community newCommunity = new Community(name, description, current);
+
+		Community newCommunity = new Community(name, description, logged, null, null);
 		
 		communities.add(newCommunity);
 		
 		System.out.println("Comunidade criada com sucesso!");
 	}
 	
-	public static void addMember(ArrayList<Community> communities){
+	public static void addMember(ArrayList<Community> communities, User logged){
 		
 		Scanner input = new Scanner(System.in);
 		String name;
-		boolean exist = false;
-		User atual = null;
+		boolean exist;
 		
 		System.out.println("Digite o nome da comunidade que deseja participar:");
 		name = input.nextLine();
-		
-		for(Community current : communities){
-			if(current.getName().equals(name)){
-				current.getMembers().add(atual);
-				exist = true;
-				break;
-			}
-		}
-		
-		if(!exist){
+
+		exist = checkCommunity(communities, name);
+
+		if(exist){
+		    Community current = getCommunity(communities, name);
+		    current.getMembers().add(logged);
+        } else{
 			int choice;
 			
 			System.out.println("Comunidade não encontrada.");
@@ -93,7 +99,7 @@ public class Community {
 			choice = input.nextInt();
 			
 			if(choice == 1){
-				createCommunity(communities);
+				createCommunity(communities, logged);
 			} else if(choice == 2){
 				printCommunity(communities);
 			}
@@ -115,5 +121,11 @@ public class Community {
 		}
 	}
 
+	public static Community getCommunity(ArrayList<Community> communities, String name){
+		for(Community current : communities)
+			if(current.getName().equals(name))
+				return current;
 
+		return null;
+	}
 }
