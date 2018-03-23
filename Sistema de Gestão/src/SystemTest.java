@@ -1,3 +1,9 @@
+import Resource.Atividade;
+import Resource.Recurso;
+import User.User;
+import Util.Date;
+import Util.Hour;
+
 import java.util.*;
 
 public class SystemTest {
@@ -34,7 +40,7 @@ public class SystemTest {
                 System.out.println();
 
             } else if (escolha == 3){
-                System.out.println("1. Laboratório\n2. Auditório\n3. Projetor\n4. Sala de aula");
+                System.out.println("1. Laboratório\n2. Auditório\n3. Resource.Projetor\n4. Sala de aula");
                 lixo = input.nextLine();
                 escolha = input.nextInt();
                 if(escolha == 1){
@@ -55,7 +61,7 @@ public class SystemTest {
                     if(projs == 0) {
                         System.out.println("Todos os projetores já foram alocados");
                     } else{
-                        allocResource(Proj, UserList, (10 - projs), "Projetor");
+                        allocResource(Proj, UserList, (10 - projs), "Resource.Projetor");
                         projs--;
                     }
                 } else {
@@ -81,7 +87,7 @@ public class SystemTest {
     public static void RegisterUser(User[] UserList, int count){
         Scanner input = new Scanner(System.in);
         int month, day, year, nRefer;
-        Date birthday;
+        Util.Date birthday;
 
         System.out.println("Digite o nome do usuário:");
         String name = input.nextLine();
@@ -95,7 +101,7 @@ public class SystemTest {
         year = input.nextInt();
         System.out.println("Digite o número de matrícula/identificação do usuário:");
         nRefer = input.nextInt();
-        birthday = new Date(month, day, year);
+        birthday = new Util.Date(month, day, year);
 
         User newUser = new User(name, address, birthday, status, nRefer);
         UserList[count] = newUser;
@@ -153,7 +159,7 @@ public class SystemTest {
                 }
 
                 if (perm) {
-                    Date dInicio, dFim;
+                    Util.Date dInicio, dFim;
                     Hour hInicio, hFim;
                     int month, day, year, hr, min;
                     Atividade atividade = new Atividade("Lab", "Aula", "qqcoisa", 32, "apagador e pincel");
@@ -162,7 +168,7 @@ public class SystemTest {
                     month = input.nextInt();
                     day = input.nextInt();
                     year = input.nextInt();
-                    dInicio = new Date(month, day, year);
+                    dInicio = new Util.Date(month, day, year);
 
                     System.out.println("Digite o mês, dia e ano do término da atividade:");
                     month = input.nextInt();
